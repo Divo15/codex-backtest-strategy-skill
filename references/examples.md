@@ -78,15 +78,24 @@ actual engine and authoritative closed-trade collection.
 ## Sweep
 
 ```python
+from itertools import product
+
 STRATEGY_CONTRACT_VERSION = "2"
 RUN_MODE = "sweep"
-SWEEP_PARAMETER_SETS = (
-    {"take_profit": 0.20, "stop_loss": 1.25, "entry_time": "09:20"},
-    {"take_profit": 0.25, "stop_loss": 1.25, "entry_time": "09:20"},
-    {"take_profit": 0.30, "stop_loss": 1.50, "entry_time": "09:30"},
+TAKE_PROFITS = (0.20, 0.25, 0.30, 0.35, 0.40)
+STOP_LOSSES = (1.0, 1.25, 1.5, 1.75, 2.0)
+LEG_DISTANCES = (100, 200, 300, 400, 500)
+SWEEP_PARAMETER_SETS = tuple(
+    {
+        "take_profit": take_profit,
+        "stop_loss": stop_loss,
+        "leg_distance": leg_distance,
+    }
+    for take_profit, stop_loss, leg_distance
+    in product(TAKE_PROFITS, STOP_LOSSES, LEG_DISTANCES)
 )
 
-ALLOWED_PARAMETERS = {"take_profit", "stop_loss", "entry_time"}
+ALLOWED_PARAMETERS = {"take_profit", "stop_loss", "leg_distance"}
 
 
 def run_strategy(context):
@@ -110,6 +119,6 @@ def run_strategy(context):
     }
 ```
 
-The dashboard supplies a different `context.run_id` and parameter mapping for
-each variation. Do not create a grid inside `run_strategy`; declare the exact
-combinations in `SWEEP_PARAMETER_SETS`.
+This example declares all 125 combinations. The dashboard supplies a different
+`context.run_id` and parameter mapping for each variation. Do not create another
+grid inside `run_strategy`; execute exactly the current mapping.

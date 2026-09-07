@@ -134,11 +134,16 @@ SWEEP_PARAMETER_SETS = (
 )
 ```
 
-Declare 1–25 unique JSON-serializable mappings. The dashboard calls
+Declare 1–500 unique JSON-serializable mappings. The dashboard calls
 `run_strategy(context)` once per mapping and places that exact mapping in
 `context.config["parameters"]`. The number of parameter names is unrestricted;
 the limit applies to total combinations. Validate unknown keys instead of
 ignoring them. Keep all results independent and deterministic.
+
+If the user asks to sweep several value lists, declare their complete Cartesian
+product. For example, 5 take-profit values × 5 stop-loss values × 5 leg-distance
+values produces 125 independent combinations. Do not preselect the highest P&L
+or any other winner; the dashboard user supplies the ranking criteria later.
 
 ## Package and output ownership
 

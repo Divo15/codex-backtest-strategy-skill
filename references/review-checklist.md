@@ -47,11 +47,13 @@ calling a script compatible.
 
 ## Sweeps
 
-- `SWEEP_PARAMETER_SETS` contains 1–25 unique JSON-serializable mappings.
+- `SWEEP_PARAMETER_SETS` contains 1–500 unique JSON-serializable mappings.
+- All requested combinations across the parameter value lists are present.
 - Every key changes or validates a real strategy setting.
 - The strategy reads the current mapping from
   `context.config["parameters"]`.
 - Variations do not share mutable engine or portfolio state.
+- No winner is inferred before the user supplies selection criteria.
 
 ## Delivery note
 

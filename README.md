@@ -10,7 +10,8 @@ The skill teaches Codex the dashboard's Strategy Contract v2, including:
 - authoritative completed-trade output;
 - raw trade fields used for independent analytics;
 - observed intraday equity snapshots; and
-- parameter sweeps with up to 25 variations.
+- parameter optimization with up to 500 combinations and explicit user-defined
+  winner selection.
 
 ## Install in Codex
 

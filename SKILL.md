@@ -41,8 +41,9 @@ Cartesian product so no requested combination is skipped. Do not calculate a
 score or label a winner in strategy code; the dashboard ranks profitable
 combinations from independently calculated execution metrics. Make repeated
 execution deterministic: the dashboard discards each sweep variation's bulky
-artifacts and reruns only the selected combination for full analytics, then
-verifies that its core metrics match the sweep row.
+artifacts, automatically reruns the recommended combination for full analytics,
+and verifies that its core metrics match the sweep row. The user can return to
+the comparison table and rerun a different combination.
 
 Do not start a backtest, read files, download data, install packages, prompt for
 input, or write dashboard output while the module is imported. Do not write

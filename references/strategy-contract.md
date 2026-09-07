@@ -148,14 +148,16 @@ or preselect a winner in the strategy.
 The dashboard ranks profitable combinations using independently calculated
 results: 35% relative net P&L, 35% lower drawdown, 15% average-win/average-loss
 ratio, 10% win rate, and 5% fewer consecutive losses. The score compares rows
-within the current sweep. The highest-ranked row is recommended, and the user can
+within the current sweep. The highest-ranked row is automatically rerun and
+opened for full analytics; the user can return to the comparison table and
 override it. Strategy code only supplies executions and optional observed equity
 snapshots; it must not return P&L, drawdown, win-rate, streak, or ranking fields.
 
 The optimizer retains parameters and compact metrics for each combination, then
-discards that variation's trade and equity files. When the user selects a winner,
-the dashboard reruns the exact parameter mapping and creates the complete artifacts
-for that run. Seed any randomness and avoid external mutable state so the selected
+discards that variation's trade and equity files. It automatically reruns the
+recommended parameter mapping and creates the complete artifacts for that run;
+a manual override follows the same process. Seed any randomness and avoid
+external mutable state so the selected
 rerun reproduces its sweep P&L, drawdown, win rate, and trade count.
 
 ## Package and output ownership

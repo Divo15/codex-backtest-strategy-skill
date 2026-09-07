@@ -38,7 +38,10 @@ affect the strategy or reject it clearly.
 
 When the user supplies value ranges for several parameters, build the complete
 Cartesian product so no requested combination is skipped. Do not rank or label
-a winner until the user supplies the selection criteria.
+a winner until the user supplies the selection criteria. Make repeated execution
+deterministic: the dashboard discards each sweep variation's bulky artifacts and
+reruns only the selected combination for full analytics, then verifies that its
+core metrics match the sweep row.
 
 Do not start a backtest, read files, download data, install packages, prompt for
 input, or write dashboard output while the module is imported. Do not write

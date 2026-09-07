@@ -145,6 +145,12 @@ product. For example, 5 take-profit values × 5 stop-loss values × 5 leg-distan
 values produces 125 independent combinations. Do not preselect the highest P&L
 or any other winner; the dashboard user supplies the ranking criteria later.
 
+The optimizer retains parameters and compact metrics for each combination, then
+discards that variation's trade and equity files. When the user selects a winner,
+the dashboard reruns the exact parameter mapping and creates the complete artifacts
+for that run. Seed any randomness and avoid external mutable state so the selected
+rerun reproduces its sweep P&L, drawdown, win rate, and trade count.
+
 ## Package and output ownership
 
 Import dependencies normally. Package installation belongs to the dashboard's

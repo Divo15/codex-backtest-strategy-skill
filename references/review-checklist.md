@@ -53,6 +53,7 @@ calling a script compatible.
 - The strategy reads the current mapping from
   `context.config["parameters"]`.
 - Variations do not share mutable engine or portfolio state.
+- Randomness is explicitly seeded so a selected combination reproduces its row.
 - No winner is inferred before the user supplies selection criteria.
 
 ## Delivery note

@@ -142,8 +142,15 @@ ignoring them. Keep all results independent and deterministic.
 
 If the user asks to sweep several value lists, declare their complete Cartesian
 product. For example, 5 take-profit values × 5 stop-loss values × 5 leg-distance
-values produces 125 independent combinations. Do not preselect the highest P&L
-or any other winner; the dashboard user supplies the ranking criteria later.
+values produces 125 independent combinations. Do not calculate selection metrics
+or preselect a winner in the strategy.
+
+The dashboard ranks profitable combinations using independently calculated
+results: 35% relative net P&L, 35% lower drawdown, 15% average-win/average-loss
+ratio, 10% win rate, and 5% fewer consecutive losses. The score compares rows
+within the current sweep. The highest-ranked row is recommended, and the user can
+override it. Strategy code only supplies executions and optional observed equity
+snapshots; it must not return P&L, drawdown, win-rate, streak, or ranking fields.
 
 The optimizer retains parameters and compact metrics for each combination, then
 discards that variation's trade and equity files. When the user selects a winner,

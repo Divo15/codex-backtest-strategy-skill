@@ -156,7 +156,8 @@ snapshots; it must not return P&L, drawdown, win-rate, streak, or ranking fields
 The optimizer retains parameters and compact metrics for each combination, then
 discards that variation's trade and equity files. It automatically reruns the
 recommended parameter mapping and creates the complete artifacts for that run;
-a manual override follows the same process. Seed any randomness and avoid
+a manual override follows the same process. Only the automatically recommended
+result is stored in persistent Best history. Seed any randomness and avoid
 external mutable state so the selected
 rerun reproduces its sweep P&L, drawdown, win rate, and trade count.
 

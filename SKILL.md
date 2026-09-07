@@ -43,7 +43,8 @@ combinations from independently calculated execution metrics. Make repeated
 execution deterministic: the dashboard discards each sweep variation's bulky
 artifacts, automatically reruns the recommended combination for full analytics,
 and verifies that its core metrics match the sweep row. The user can return to
-the comparison table and rerun a different combination.
+the comparison table and rerun a different combination. Only the automatically
+recommended result is stored in the dashboard's persistent Best history.
 
 Do not start a backtest, read files, download data, install packages, prompt for
 input, or write dashboard output while the module is imported. Do not write

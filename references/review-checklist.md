@@ -16,7 +16,7 @@ calling a script compatible.
 
 ## Strategy preservation
 
-- Every requested entry, exit, stop, target, trailing, re-entry, sizing,
+- Every requested entry, exit, stop, target, trailing,entry-timing, re-entry, sizing,
   expiry, hedge, and timing rule remains implemented.
 - Defaults are visible and user-supplied configuration is not silently
   replaced.

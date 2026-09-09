@@ -47,7 +47,8 @@ calling a script compatible.
 
 ## Sweeps
 
-- `SWEEP_PARAMETER_SETS` contains 1–500 unique JSON-serializable mappings.
+- `SWEEP_PARAMETER_SETS` contains unique JSON-serializable mappings with no
+  artificial 500-combination cap.
 - All requested combinations across the parameter value lists are present.
 - Every key changes or validates a real strategy setting.
 - The strategy reads the current mapping from

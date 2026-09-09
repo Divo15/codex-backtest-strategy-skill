@@ -32,9 +32,8 @@ Generate an import-safe module that:
   drawdown is required.
 
 For sweeps, declare the exact `SWEEP_PARAMETER_SETS` mappings requested by the
-user. The dashboard supports at most 500 variations and replaces
-`context.config["parameters"]` for each variation. Make every declared key
-affect the strategy or reject it clearly.
+user. The dashboard replaces `context.config["parameters"]` for each
+variation. Make every declared key affect the strategy or reject it clearly.
 
 When the user supplies value ranges for several parameters, build the complete
 Cartesian product so no requested combination is skipped. Do not calculate a
